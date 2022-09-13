@@ -1,0 +1,1 @@
+(p or q) and not(p and q)
