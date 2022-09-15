@@ -1,0 +1,12 @@
+6a. H and D -> L == !L and D -> !H
+!(H and D) or !L == !(!L and D) or !H
+!H or !D or L == !!L or !D or !H
+!H or !D or L == !H or !D or L
+
+(H and D) -> L == (!L and D) -> !H
+!(H and D) or L
+!H or !D or L
+L or !D or !H
+!(!L and !!D) or !H
+(!L and !!D) -> !H
+!L and !D -> !H
