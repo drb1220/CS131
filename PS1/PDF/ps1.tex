@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 1}
+\author{David Bunger}
+\date{September 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 6.}
+\subsection*{a)} 
+Prove $H \land D \rightarrow L \equiv \lnot L \land D \rightarrow \lnot H$ \\ \hline
+\begin{align*}
+    & H \land D \rightarrow L \\
+    & \neg (H \land D) \lor L & &(\textbf{Conditional Identity}) \\
+    & \neg H \lor \neg D \lor L & &(\textbf{DeMorgan's Law}) \\
+    & L \lor \neg D \lor \neg H & &(\textbf{Commutative Law}) \\
+    & \neg (\neg L \land \neg \neg D) \lor \neg H & &(\textbf{DeMorgan's Law}) \\
+    & (\neg L \land \neg \neg D) \rightarrow \neg H & &(\textbf{Conditional Identity}) \\
+    & \neg L \land \neg \neg D \rightarrow \neg H & &(\textbf{Associative Law}) \\
+    & \neg L \land D \rightarrow \neg H & &(\textbf{Double Negation Law})
+\end{align*}
+\clearpage
+\subsection*{b)}
+Prove $(W \rightarrow E) \land (E \rightarrow H) \land \neg (W \rightarrow H) \equiv F$ \\ \hline
+\begin{align*}
+    & (W \rightarrow E) \land (E \rightarrow H) \land \neg (W \rightarrow H) \\
+    & ( \neg W \lor E) \land ( \neg E \lor H) \land \neg (\neg W \lor H) & &(\textbf{Conditional Identity}) \\
+    & ( \neg W \lor E) \land ( \neg E \lor H) \land (\neg \neg W \land \neg H) & &(\textbf{DeMorgan's Law}) \\
+    & ( \neg W \lor E) \land ( \neg E \lor H) \land (W \land \neg H) & &(\textbf{Double Negation Law}) \\
+    & ( \neg W \lor E) \land ( \neg E \lor H) \land W \land \neg H & &(\textbf{Associative Law}) \\
+    & W \land ( \neg W \lor E) \land \neg H \land ( \neg E \lor H) & &(\textbf{Commutative Law}) \\
+    & ((W \land \neg W) \lor (W \land E)) \land ((\neg H \land \neg E) \lor (\neg H \land H)) & &(\textbf{Distributive Law}) \\
+    & (F \lor (W \land E)) \land ((\neg H \land \neg E) \lor F) & &(\textbf{Complement Law}) \\
+    & (W \land E) \land (\neg H \land \neg E) & &(\textbf{Identity Law}) \\
+    & W \land E \land \neg H \land \neg E & &(\textbf{Associative Law}) \\
+    & W \land \neg H \land E \land \neg E & &(\textbf{Commutative Law}) \\
+    & W \land \neg H \land F & &(\textbf{Complement Law}) \\
+    & F & &(\textbf{Domination Law})
+\end{align*}
+\clearpage
+\section*{Problem 7.}
+\subsection*{a)}
+\subsection*{(1)}
+$(A \rightarrow G) \land (M \lor \neg G) \land (\neg A \rightarrow \neg M)$
+\subsection*{(2)}
+$(A \land G \land M) \lor (\neg A \land \neg G \land \neg M)$
+\subsection*{(3)}
+Prove $(A \rightarrow G) \land (M \lor \neg G) \land (\neg A \rightarrow \neg M) \equiv (A \land G \land M) \lor (\neg A \land \neg G \land \neg M)$
+\begin{tabular}{| c | c | c || c |}
+    \hline
+    $A$ & $G$ & $M$ & $(A \rightarrow G) \land (M \lor \neg G) \land (\neg A \rightarrow \neg M)$ \\ \hline \hline
+    T & T & T & T \\ \hline
+    T & T & F & F \\ \hline
+    T & F & T & F \\ \hline
+    T & F & F & F \\ \hline
+    F & T & T & F \\ \hline
+    F & T & F & F \\ \hline
+    F & F & T & F \\ \hline
+    F & F & F & T \\ \hline
+\end{tabular}
+\\ \\ \\
+\begin{tabular}{| c | c | c || c |}
+    \hline
+    $A$ & $G$ & $M$ & $(A \land G \land M) \lor (\neg A \land \neg G \land \neg M)$ \\ \hline \hline
+    T & T & T & T \\ \hline
+    T & T & F & F \\ \hline
+    T & F & T & F \\ \hline
+    T & F & F & F \\ \hline
+    F & T & T & F \\ \hline
+    F & T & F & F \\ \hline
+    F & F & T & F \\ \hline
+    F & F & F & T \\ \hline
+\end{tabular}
+\clearpage
+\subsection*{b)}
+Prove $((A \land G \land M) \lor (\neg A \land \neg G \land \neg M)) \land ((A \lor G \lor M) \land \neg (A \land G \land M)) \equiv F$ \\ \hline
+\begin{align*}
+    & ((A \land G \land M) \lor (\neg A \land \neg G \land \neg M)) \land ((A \lor G \lor M) \land \neg (A \land G \land M)) \\
+    & ((A \land G \land M) \lor \neg(A \lor G \lor M)) \land ((A \lor G \lor M) \land \neg (A \land G \land M)) & &(\textbf{DeMorgan's Law}) \\
+    & ((A \land G \land M) \lor \neg(A \lor G \lor M)) \land (A \lor G \lor M) \land \neg (A \land G \land M) & &(\textbf{Associative Law}) \\
+    & \neg (A \land G \land M) \land ((A \land G \land M) \lor \neg(A \lor G \lor M)) \land (A \lor G \lor M) & &(\textbf{Commutative Law}) \\
+    & (\neg (A \land G \land M) \land (A \land G \land M)) \lor (\neg (A \land G \land M) \land \neg(A \lor G \lor M)) \land (A \lor G \lor M) & &(\textbf{Distributive Law}) \\
+    & F \lor (\neg (A \land G \land M) \land \neg(A \lor G \lor M)) \land (A \lor G \lor M) & &(\textbf{Complement Law}) \\
+    & (\neg (A \land G \land M) \land \neg(A \lor G \lor M)) \land (A \lor G \lor M) & &(\textbf{Identity Law}) \\
+    & \neg (A \land G \land M) \land \neg(A \lor G \lor M) \land (A \lor G \lor M) & &(\textbf{Associative Law}) \\
+    & \neg (A \land G \land M) \land F & &(\textbf{Complement Law}) \\
+    & F & &(\textbf{Domination Law})
+\end{align*}
+\section*{Problem 8.}
+\subsection*{a)}
+$A \lor J \lor K$
+\subsection*{b)}
+$A:F, \; J:F, \; K:T$\\
+If the value of A was true, Alan would have answered yes, because then Alan would know that at least one of them(himself) would be thinking about getting dinner. Therefore, because Alan is unsure, the value of A must be false.\\
+John, being a logician, hears Alan's answer and knows that A is false. Then, if J was true, John would have answered yes for the same reason as Alan. Therefore, because John is unsure, the value of J must be false.\\
+Kurt, also a logician, hears both Alan and John's answers and determines that A and J are false. Despite this, he answers yes, meaning K alone is true.\\
+\clearpage
+\section*{Problem 9.}
+Original:\\ \\
+\begin{tabular}{c | c | c | c |}
+    & $A$ & $B$ & $C$ \\ \hline
+    1 & F & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    2 & F & F & T \\ \hline
+    3 & F & T & F \\ \hline
+    4 & F & T & T \\ \hline
+    5 & T & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    6 & T & F & T \\ \hline
+    7 & T & T & F \\ \hline
+    8 & T & T & T \\
+\end{tabular}
+\subsection*{a)}
+\begin{tabular}{c | c | c | c |}
+    & $A$ & $B$ & $C$ \\ \hline
+    1 & F & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    2 & F & F & T \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    3 & F & T & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    4 & F & T & T \\ \hline
+    5 & T & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    6 & T & F & T \\ \hline
+    7 & T & T & F \\ \hline
+    8 & T & T & T \\
+\end{tabular}\\
+Row 3 is eliminated because Bjorn doesn't walk home, and row 2 is eliminated because Cathy doesn't walk home.\\
+\subsection*{b)}
+The children can say that there are at least two muddy faces among them, because all of the rows with only one muddy face among them have been eliminated.\\
+\subsection*{c)}
+\begin{tabular}{c | c | c | c |}
+    & $A$ & $B$ & $C$ \\ \hline
+    1 & F & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    2 & F & F & T \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    3 & F & T & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    4 & F & T & T \\ \hline
+    5 & T & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    6 & T & F & T \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    7 & T & T & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    8 & T & T & T \\
+\end{tabular}\\
+Rows 6 and 7 are eliminated because if Anna saw only one other muddy face, she would know that her own face is muddy since she knows at least two of their faces are muddy.\\
+\subsection*{d)}
+\begin{tabular}{c | c | c | c |}
+    & $A$ & $B$ & $C$ \\ \hline
+    1 & F & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    2 & F & F & T \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    3 & F & T & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    4 & F & T & T \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    5 & T & F & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    6 & T & F & T \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    7 & T & T & F \\ [-1.75ex] \hline \\ [-1.2ex] \hline
+    8 & T & T & T \\
+\end{tabular}\\
+Row 4 is eliminated because both Cathy and Bjorn would have walked home if they only saw one other muddy face, knowing there are at least two among them.\\
+\subsection*{e)}
+Given the remaining rows, all three children will walk home.
+
+\end{document}
