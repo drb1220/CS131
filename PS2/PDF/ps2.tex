@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 2}
+\author{David Bunger}
+\date{September 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1.}
+$x = y = 1$ and $w = z = 0$
+\subsection*{a)} 
+$xy\overline{zw}$
+\begin{gather*}
+    1\land 1\land \neg (0 \land 0) \\ 
+    1\land1\\
+    1
+\end{gather*}
+\subsection*{b)} 
+$x\overline{y}+z(\overline{w+z})$
+\begin{gather*}
+    1 \land \neg1\lor0\land\neg(0\lor0)\\
+    1\land0\lor0\land1\\
+    0\lor0
+\end{gather*}
+\subsection*{c)} 
+$\overline{z}y\overline{x}(1+w)$
+\begin{gather*}
+    \neg0\land1\land\neg1\land(1\lor0)\\
+    1\land1\land0\land1\\
+    0
+\end{gather*}
+\clearpage
+\subsection*{d)} 
+$xy\overline{z}+z\overline{w}$
+\begin{gather*}
+    1\land1\land\neg0\lor0\land\neg0\\
+    1\land1\land1\lor0\land1\\
+    1\lor0\\
+    1
+\end{gather*}
+\subsection*{e)} 
+$\overline{(z+y)(w+x)}$
+\begin{gather*}
+    \neg((0\lor1)\land(0\lor1))\\
+    \neg(1\land1)\\
+    \neg1\\
+    0
+\end{gather*}
+\subsection*{f)} 
+$x\overline{y}+(\overline{\overline{x}+\overline{w}+\overline{yz}})$
+\begin{gather*}
+    1\land\neg1\lor\neg(\neg1\lor\neg0\lor\neg(1\land0))\\
+    1\land0\lor\neg(0\lor1\lor\neg(1\land0))\\
+    1\land0\lor\neg(0\lor1\lor1)\\
+    1\land0\lor0\\
+    0\lor0\\
+    0
+\end{gather*}
+\clearpage
+\section*{Problem 2.}
+\subsection*{a)}
+Prove $xy + x\overline{y}=x$
+\begin{align*}
+    & xy + x\overline{y} & & \\
+    & x(y+\overline{y}) & & (\textbf{Distributive Law}) \\
+    & x\cdot1 & & (\textbf{Complement Law}) \\
+    & x & & (\textbf{Domination Law})
+\end{align*}
+\subsection*{b)}
+Prove $x + xy=x$
+\begin{align*}
+    & x + xy & & \\
+    & x & & (\textbf{Absorption Law})
+\end{align*}
+\subsection*{c)}
+Prove $x(\overline{y}+x) = x$
+\begin{align*}
+    & x(\overline{y}+x) & & \\
+    & x\overline{y}+xx & & (\textbf{Distribution Law}) \\
+    & x\overline{y}+x & & (\textbf{Idempotent Law}) \\
+    & x & & (\textbf{Absorption Law})
+\end{align*}
+\subsection*{d)}
+Prove $\overline{xy+z\overline{x}}=(\overline{x}+\overline{y})(\overline{z}+x)$
+\begin{align*}
+    & \overline{xy+z\overline{x}} & & \\
+    & \overline{xy}\cdot\overline{z\overline{x}} & & (\textbf{DeMorgan's Law}) \\
+    & (\overline{x}+\overline{y})(\overline{z}+\overline{\overline{x}}) & & (\textbf{DeMorgan's Law}) \\
+    & (\overline{x}+\overline{y})(\overline{z}+x) & & (\textbf{Double Complement Law})
+\end{align*}
+\clearpage
+\section*{Problem 3.}
+\subsection*{a)}
+$x\overline{y}z+x\overline{z}$\\
+This formula is in DNF\\
+\vspace{0mm}\\
+\begin{tabular}{| c | c | c || c |}
+    \hline
+    $x$ & $y$ & $z$ & $x\overline{y}z+x\overline{z}$ \\ \hline \hline
+    0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 0 \\ \hline
+    0 & 1 & 0 & 0 \\ \hline
+    0 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 1 \\ \hline
+    1 & 0 & 1 & 1 \\ \hline
+    1 & 1 & 0 & 1 \\ \hline
+    1 & 1 & 1 & 0 \\ \hline
+\end{tabular}\\
+\vspace{0mm}\\
+CNF expression:\\
+$(x+y+z)(x+y+\overline{z})(x+\overline{y}+z)(x+\overline{y}+\overline{z})(\overline{x}+\overline{y}+\overline{z})$\\
+Simplified:\\
+$(x)(\overline{x}+\overline{y}+\overline{z})$
+\subsection*{b)}
+$\overline{y}x\overline{z}w$\\
+This formula is in both CNF and DNF
+\subsection*{c)}
+$y(\overline{x}+z)(\overline{y}+\overline{z})(x+y+\overline{z})$\\
+This formula is in CNF\\
+\vspace{0mm}\\
+\begin{tabular}{| c | c | c || c |}
+    \hline
+    $x$ & $y$ & $z$ & $x\overline{y}z+x\overline{z}$ \\ \hline \hline
+    0 & 0 & 0 & 0 \\ \hline
+    0 & 0 & 1 & 0 \\ \hline
+    0 & 1 & 0 & 1 \\ \hline
+    0 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 0 \\ \hline
+    1 & 0 & 1 & 0 \\ \hline
+    1 & 1 & 0 & 0 \\ \hline
+    1 & 1 & 1 & 0 \\ \hline
+\end{tabular}\\
+\vspace{0mm}\\
+DNF expression:\\
+$\overline{x}y\overline{z}$
+\subsection*{d)}
+$x+\overline{y}+z$\\
+This formula is in both CNF and DNF
+\section*{Problem 5.}
+$(a_4\oplus a_3\oplus a_2\oplus a_1\oplus a_0)\oplus((a_4\lor a_3\lor a_2\lor a_1)\land \neg a_0)$
+\section*{Problem 6.}
+\subsection*{a)}
+\begin{align*}
+    & (F_OR_B)\oplus(F_OR_B+F_BR_O) & & \\
+    & ((F_OR_B)+(F_OR_B+F_BR_O))\cdot\overline{((F_OR_B)(F_OR_B+F_BR_O))} & &(\textbf{XOR Rewritten})\\
+    & (F_OR_B+F_OR_B+F_BR_O)\cdot\overline{((F_OR_B)(F_OR_B+F_BR_O))} & &(\textbf{Associative Law})\\
+    & (F_OR_B+F_BR_O)\cdot\overline{((F_OR_B)(F_OR_B+F_BR_O))} & &(\textbf{Idempotent Law})\\
+    & (F_OR_B+F_BR_O)\cdot\overline{(F_OR_B)}+\overline{(F_OR_B+F_BR_O)}& &(\textbf{DeMorgan's Law})\\
+    & (F_OR_B+F_BR_O)\overline{(F_OR_B)}+(F_OR_B+F_BR_O)\overline{(F_OR_B+F_BR_O)}& &(\textbf{Distributive Law})\\
+    & (F_OR_B+F_BR_O)\overline{(F_OR_B)}+0& &(\textbf{Complement Law})\\
+    & (F_OR_B+F_BR_O)\overline{(F_OR_B)}& &(\textbf{Identity Law})\\
+    & \overline{(F_OR_B)}(F_OR_B)+\overline{(F_OR_B)}(F_BR_O)& &(\textbf{Distributive Law})\\
+    & 0+\overline{(F_OR_B)}(F_BR_O)& &(\textbf{Complement Law})\\
+    & \overline{(F_OR_B)}(F_BR_O)& &(\textbf{Identity Law})
+\end{align*}
+\subsection*{b)}
+The bank must be set on fire and the orphanage must be robbed. This is because the simplified version of The Riddler's final message says the orphanage being set on fire and the band being robbed cannot be true, and the bank being set on fire and the orphanage being robbed must be true.
+\subsection*{c)}
+The Riddler's first message, $F_OR_B$, was a lie.
+\subsection*{d)}
+It is possible that either the orphanage is set on fire or the bank is robbed, but not both. Therefore, Batman should send the fire department to the orphanage and Commissioner Gordon to the bank as well, just to be safe.
+\section*{Problem 8.}
+\subsection*{a)}
+$x\cdot y$ can be written as $\overline{(x\rightarrow y)\rightarrow\overline{x}}$, and since any function can be written using multiplication and complement, $\rightarrow$ and complement must be functionally complete.\\
+\begin{tabular}{| c | c | c | c | c | c |}
+    \hline
+    $x$ & $y$ & $x\rightarrow y$ & $\overline{x}$ & $(x\rightarrow y)\rightarrow\overline{x}$ & $\overline{(x\rightarrow y)\rightarrow\overline{x}}$ \\ \hline \hline
+    0 & 0 & 1 & 1 & 1 & 0 \\ \hline
+    0 & 1 & 1 & 1 & 1 & 0 \\ \hline
+    1 & 0 & 0 & 0 & 1 & 0 \\ \hline
+    1 & 1 & 1 & 0 & 0 & 1 \\ \hline
+\end{tabular}
+\subsection*{b)}
+$\overline{x}$ can be written as $x\oplus(x\rightarrow x)$, and $x\cdot y$ can be written as $(x\rightarrow (x\oplus y)) \oplus (x\rightarrow x)$. Since any function can be written using multiplication and complement, $\rightarrow$ and $\oplus$ must be functionally complete.\\
+\begin{tabular}{| c | c | c | c | c |}
+    \hline
+    $x$ & $y$ & $x\oplus y$ & $x\rightarrow (x\oplus y)$ & $(x\rightarrow (x\oplus y)) \oplus (x\rightarrow x)$\\ \hline \hline
+    0 & 0 & 0 & 1 & 0\\ \hline
+    0 & 1 & 1 & 1 & 0\\ \hline
+    1 & 0 & 1 & 1 & 0\\ \hline
+    1 & 1 & 0 & 0 & 1\\ \hline
+\end{tabular}
+\end{document}

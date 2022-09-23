@@ -1,0 +1,1 @@
+(x and y and z) or (not x and not y and not z)
