@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 3}
+\author{David Bunger}
+\date{October 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+\newcommand\ncoverline[1]{\mkern1mu\overline{\mkern-1mu#1\mkern-1mu}\mkern1mu}
+
+\begin{document}
+
+\maketitle
+\section*{Problem 1}
+\subsection*{a)}
+1,0,1,0
+\subsection*{b)}
+\begin{align*}
+    & \overline{z}(z+x)(y+v)(z+\overline{x})\\
+    & (\overline{z}z+\overline{z}x)(y+v)(z+\overline{x}) & &(\textbf{Distributive Law})\\
+    & (0+\overline{z}x)(y+v)(z+\overline{x}) & &(\textbf{Complement Law})\\
+    & \overline{z}x(y+v)(z+\overline{x}) & &(\textbf{Identity Law})\\
+    & (\overline{z}xz + \overline{z}x\overline{x})(y+v)& &(\textbf{Distributive Law})\\
+    & (0\cdot x + 0\cdot \overline{z})(y+v)& &(\textbf{Complement Law})\\
+    & (0 + 0)(y+v)& &(\textbf{Domination Law})\\
+    & 0(y+v)& &(\textbf{Idempotent Law})\\
+    & 0& &(\textbf{Domination Law})
+\end{align*}
+\subsection*{c)}
+1,0,0,1
+\subsection*{d)}
+\begin{align*}
+    & (\overline{x}+\overline{y})\overline{(\overline{z}+v)}(y+x)(xy)\\
+    & \ncoverline{(xy)}\ncoverline{(\overline{z}+v)}(y+x)(xy)& &(\textbf{DeMorgan's Law})\\
+    & 0\cdot\overline{(\overline{z}+v)}(y+x)& &(\textbf{Complement Law})\\
+    & 0& &(\textbf{Domination Law})
+\end{align*}
+\section*{Problem 2}
+\subsection*{a)}
+Prove $\overline{A\cap \overline{B}}=\overline{A}\cup B$\\
+We will start with $x\in(\overline{A\cap \overline{B}})$ and show that it is equivalent to $x\in(\overline{A}\cup B)$. By the definition of negation, $x\in(\overline{A\cap \overline{B}})$ is equivalent to $\neg(x\in(A\cap \overline{B}))$. We can then get $\neg((x\in A)\land \overline{(x\in B)})$ by the definition of intersect. Once again, by the definition of negation, we can get $\neg((x\in A)\land \neg(x\in B))$. Now, using De Morgan's law, we get $\neg(x\in A)\land \neg\neg(x\in B)$. With the double negation law, $\neg(x\in A)\land \neg\neg(x\in B)$ becomes $\neg(x\in A)\land (x\in B)$. We can apply the definition of negation to get $\overline{(x\in A)}\land (x\in B)$. Finally, by the definition of union, $\overline{(x\in A)}\land (x\in B)$ is equivalent to $x\in(\overline{A}\cup B)$, and therefore, $x\in(\overline{A\cap \overline{B}})$ is equivalent to $x\in(\overline{A}\cup B)$.\hfill $\square$
+\subsection*{b)}
+Prove $A-(B\cap A) = A - B$
+We will start with $x\in (A-(B\cap A))$ and show that it is equivalent to $x\in (A-B)$. Starting with the definition of difference, we show that $x\in (A-(B\cap A))$ is equivalent to $(x\in A)\land \neg(x\in(B\cap A))$. Then, by the definition of intersect, we get $(x\in A)\land \neg((x\in B)\land (x\in A))$. Using De Morgan's law, we get $(x\in A)\land (\neg(x\in B)\lor \neg(x\in A))$. Next, using the distributive law, we get $((x\in A)\land\neg(x\in B))\lor ((x\in A)\land\neg(x\in A))$. With the complement law, we get $((x\in A)\land\neg(x\in B))\lor F$, and with the idempotent law, we get $((x\in A)\land\neg(x\in B))$. Finally, by the definition of difference, $((x\in A)\land\neg(x\in B))$ is equivalent to $x\in (A-B)$. Therefore, $x\in (A-(B\cap A))$ is equivalent to $x\in (A-B)$.\hfill$\square$
+\section*{Problem 3}
+\subsection*{a)}
+Let $A=\{1,2,4\},B=\{2,3,4\},C=\{1,3,4\}$. $(A\oplus B\oplus C)\cup (A\cap B\cap C)=\emptyset\cup\{4\}=\{4\}$, but $(A\cup B\cup C)=\{1,2,3,4\}$. Therefore, the identity is false.
+\subsection*{b)}
+Let $A=U,B=\emptyset$. $A\cap (\overline{A}\cup B)$ becomes $U\cap (\emptyset\cup\emptyset)$, which yields $\emptyset$. However, $A\cup (A\cap\overline{B})$ becomes $U\cup(U\cap U)$, which yields $U$. Therefore, the identity is false.
+\end{document}
