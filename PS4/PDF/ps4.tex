@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 4}
+\author{David Bunger}
+\date{October 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+\subsection*{a)}
+$\exists x \in D:S(x)$
+\subsection*{b)}
+$\forall x \in D: \neg S(x) \land W(x)$
+\subsection*{c)}
+$\forall x \in D: S(x) \rightarrow \neg W(x)$
+\subsection*{d)}
+$\exists x \in D: S(x) \land W(x)$
+\subsection*{e)}
+$\forall x \in D: \neg W(x) \rightarrow (S(x)\lor V(x))$
+\subsection*{f)}
+$\exists x \in D: S(x) \land (x \neq \text{Ingrid})$
+\clearpage
+\section*{Problem 2}
+\subsection*{a)}
+Everyone on the board of directors earns more than \$100,000.
+\subsection*{b)}
+Someone earns more than \$100,000 and doesn't work more than 60 hours per week.
+\subsection*{c)}
+Everyone who works more than 60 hours per week earns more than \$100,000.
+\subsection*{d)}
+Someone who isn't on the board of directors earns more than \$100,000.
+\subsection*{e)}
+Everyone who earns more than \$100,000 is on the board of directors or works 60 hours per week (or both).
+\subsection*{f)}
+Someone is on the board of directors, doesn't earn \$100,000, and works more than 60 hours per week.
+\clearpage
+\section*{Problem 3}
+\subsection*{a)}
+$\exists x\forall y\forall z: \neg P(x,y,z)$
+\subsection*{b)}
+$\exists x \forall y :(\neg P(x,y) \lor \neg Q(x,y))$
+\subsection*{c)}
+$\forall x\exists y:(P(x,y)\land \neg Q(x,y))$
+\subsection*{d)}
+$\forall x\exists y:(P(x,y)\land \neg P(y,x))\lor(P(y,x)\land \neg P(x,y))$
+\subsection*{e)}
+$\forall x\forall y:\neg P(x,y)\lor\exists x\exists y:\neg Q(x,y)$
+
+\section*{Problem 5}
+\subsection*{a)}
+1) $\exists x: P(x)$\\
+2) Negation: $\neg \exists x: P(x)$\\
+3) Applying DeMorgan's law: $\forall x: \neg P(x)$\\
+4) English: Every student didn't bring a pencil.
+\subsection*{b)}
+1) $\forall x: P(x) \lor C(x)$\\
+2) Negation: $\neg \forall x: P(x) \lor C(x)$\\
+3) Applying DeMorgan's law: $\exists x: \neg P(x) \land \neg C(x)$\\
+4) English: At least one student didn't bring a pencil and didn't bring a calculator.
+\subsection*{c)}
+1) $\exists x: P(x) \lor C(x)$\\
+2) Negation: $\neg \forall x: P(x) \lor C(x)$\\
+3) Applying DeMorgan's law: $\forall x: \neg P(x) \land \neg C(x)$\\
+4) English: Every student didn't bring a pencil and didn't bring a calculator.
+\subsection*{d)}
+1) $\forall x: P(x) \land C(x)$\\
+2) Negation: $\neg \forall x: P(x) \land C(x)$\\
+3) Applying DeMorgan's law: $\exists x: \neg P(x) \lor \neg C(x)$\\
+4) English: At least one student didn't bring a pencil or didn't bring a calculator.
+\section*{Problem 6}
+\subsection*{a)}
+The domain of x is the set of all high school students in Slumpville.\\
+H(x): x is an honor student.\\
+C(x): x is cool\\
+S(x): x is smart.\\
+$\forall x: H(x) \rightarrow C(x)$\\
+$\exists x: S(x) \land \neg C(x)$\\
+$\exists x: S(x) \land \neg H(x)$\\
+We know that if a student is an honor student, then they are cool. We also know that there exists a student who is smart and not cool. By Modus Tollens, we know that the same student who is smart and not cool is also not an honor student. Therefore, we know that there exists a student who is smart and not an honor student.
+\subsection*{b)}
+The domain of x is the set of all babies.\\
+E(x): x eats.\\
+M(x): x makes a mess.\\
+D(x): x drools.\\
+Sc(x): x screams.\\
+Sm(x): x smiles.\\
+$\forall x: E(x) \rightarrow (M(x)\land D(x))$\\
+$\forall x: D(x) \rightarrow Sm(x)$\\
+$\exists x: E(x) \land Sc(x)$\\
+$\exists x: Sm(x)$\\
+We know that if a baby eats, it will drool and make a mess, and that if a baby drools, it will smile. By hypothetical syllogism, we know that if a baby eats, it will smile. We also know there exists a baby who eats and screams. Therefore, since we know there exists a baby who eats, we know there exists a baby who smiles.
+\section*{Problem 7}
+\subsection*{a)}
+$A(a,b)=\exists c : S(a,c) \land P(c,b)$
+\subsection*{b)}
+$C(a,b)=(a \neq b)\land\exists c,d: P(c,a)\land P(d,b) \land S(c,d)$\\
+a does not equal b, and there exists c and d where c is a parent of a, d is a parent of b, and c and d are siblings.
+\subsection*{c)}
+$R(a,b)=\exists c:(P(c,a)\land C(c,b))\lor (P(c,b)\land C(c,a))$\\
+There exists c where c is a parent of a and c and b are cousins, or c is a parent of b and c and a are cousins.
+\subsection*{d)}
+$I(a,b)=\exists c,d:((c=a)\lor (c=b))\land ((d=a)\lor (d=b))\land S(c,d)\land P(c,d)\land G(c,d)\land A(c,d)$\\
+$(c=a)\lor (c=b))\land ((d=a)\lor (d=b))$\\
+c and d are both equal to a or b, allowing relations like $P(a,b)\land P(b,a)$ to be written just as $P(c,d)$. It is irrelevant if c and d are equal, so $(c \neq d)$ does not need to be included.
+\end{document}
