@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 5}
+\author{David Bunger}
+\date{October 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+\subsection*{a)}
+$R_1 = \{((x,y),(z,t)): (|x-z|>1)\land (|y-t|>1)\}$\\
+Theorem: $R_1$ is not transitive.\\
+Hypothesis: The statement "If a,b, and c are points whose values are real numbers $R_1(a,b)$ and $R_1(b,c)$, then $R_1(b,c)$" false.\\
+Proof:\\
+Let $a$ be $(0,0)$, $b$ be $(2,2)$, and $c$ be $(0,0)$. Suppose that $R_1$ is transitive. That means if $R_1(a,b)$ and $R_1(b,c)$, then $R_1(a,c)$. $R_1(a,b)$ is true because $(|0-2|>1)\land (|0-2|>1)$ is true, and $R_1(b,c)$ is true because $((|2-0|>1)\land (|2-0|>1)$ is true. However, $R_1(a,c)$ is false because $(0-0|>1)\land (|0-0|>1)$ is false. Therefore, $R_1$ is not transitive.
+\subsection*{b)}
+$R_2=\{((x,y),(z,t)): (x>z)\land(y>t)\}$\\
+Theorem: $R_2$ is transitive.\\
+Hypothesis: If a,b, and c are points whose values are real numbers, $R_2(a,b)$, and $R_2(b,c)$, then $R_2(b,c)$\\
+Proof:\\
+Assume that $R_2(a,b)$ and $R_2(b,c)$ are true. This means that the x value of $a$($a_x$) is greater than the x value of $b$($b_x$), and the y value of $a$($a_y$) is greater than the y value of $b$($b_y$). This also means that $b_x > c_x$ and $b_y > c_y$. If the theorem is true, then $a_x>c_x$ and $a_y>c_y$. We know that > is transitive, because if a number x is greater than another number y, and y is greater than a third number z, x must be greater than z. Because we know this, it must be true that $a_x>c_x$ and $a_y>c_y$, and therefore $R_2$ is transitive.
+\clearpage
+\subsection*{c)}
+$R_3=\{((x,y),(z,t)): (x>z)\lor(y>t)\}$\\
+Theorem: $R_3$ is not transitive.\\
+Hypothesis: The statement "If a,b, and c are points whose values are real numbers $R_3(a,b)$ and $R_3(b,c)$, then $R_3(b,c)$" false.\\
+Proof:\\
+Let $a$ be $(1,2)$, $b$ be $(4,1)$, and $c$ be $(3,3)$. Suppose that $R_3$ is transitive. That means if $R_3(a,b)$ and $R_3(b,c)$, then $R_3(a,c)$. $R_3(a,b)$ is true because $(1>4)\lor(2>1)$ is true, and $R_3(b,c)$ is true because $(4>3)\lor(1>3)$ is true. However, $R_3(a,c)$ is false because $(1>3)\lor(2>3)$ is false. Therefore, $R_3$ is not transitive.
+\section*{Problem 2}
+Prove that if $a$ and $b$ are integers and $5|a$, then $5|ab$.\\
+Proof:\\
+Assume $a$ and $b$ are integers and $5|a$. This means that $a$ is divisible by 5, meaning there exists an integer $k$ that when multiplied with 5 results in $a$, or $5k=a$. If both sides of this equation are multiplied by the integer $b$, the resulting equation would be $5kb=ab$, which would also be true by the laws of algebra. $kb$ can be simplified to k, because the product of two integers is itself an integer, resulting in $5k=ab$. This means that there exists an integer $k$ that when multiplied by 5 results in $ab$.  Therefore, $5|ab$.
+\section*{Problem 3}
+Prove that multiples(69) $\subseteq$ multiples(23).\\
+Proof:\\
+The formula to describe multiples(x), $\{y \in \mathbb{Z}:x|y\}$, can be described as the set of all integers that can be divided by x. Because 69 can be divided by 23, 69 is a multiple of 23. This also means 69a is also a multiple of 23, where a is an integer. This shows that every number that can be divided by 69 can also be divided by 23. Therefore, multiples(69) $\subseteq$ multiples(23).
+\clearpage
+\section*{Problem 4}
+\subsection*{a)}
+Prove that divisors(b)$\cap$divisors(a-b)$\subseteq$divisors(a)$\cap$divisors(b)\\
+Proof:\\
+The function divisors(x) can be defined as $S=\{i \in \mathbb{Z}:i|x\}$. The intersection of divisors(a) and divisors(b) can be defined as $S=\{i\in \mathbb{Z}:i|a\land i|b\}$. Suppose that if $i|a$ and $i|b$, then $i|(a-b)$. By the definition of divides, that means there exists an integer $k$ that when multiplied by $i$ results in $(a-b)$. There also exists integers $j$ and $l$ that when multiplied by $i$, result in $a$ and $b$ respectively. $k$ can be found by subtracting $l$ from $j$, showing that $a$, $b$, and $(a-b)$ can all be divided by the same $i$. This means that divisors(a-b) includes, but is not limited to, the intersection of divisors(a) and divisors(b). When intersected with divisors(b), the set becomes equivalent to the intersection of divisors(a) and divisors(b). Therefore, divisors(b)$\cap$divisors(a-b)$\subseteq$divisors(a)$\cap$divisors(b).
+\section*{Problem 5}
+Prove that if 131 doesn't divide 111x then 131 doesn't divide x.\\
+Proof:\\
+If 131 divides 111x, that means there exists an integer $k$ that when multiplied with 131 results in 111x, or $131k=111x$. By basic algebra, this can be rewritten as $131k/111=x$. As $k$ can be any integer, $k/111$ can be rewritten as $k$, so long as 111 divides $k$. If an integer $k$ does not exist for $131k=111x$, then it will also not exist for $131k=x$, as 131 itself does not divide 111. Therefore, if 131 doesn't divide 111x then 131 doesn't divide x.
+\section*{Problem 6}
+Prove that if $a\in \mathbb{Z}$ and $b \notin \mathbb{Z}$ then $c=a+b\notin \mathbb{Z}$\\
+If $b$ is not an integer, that means $b-\floor{b}$ is greater than zero and less than one. If a is an integer, that means  $a-\floor{a}$ is zero. $a+b$ can be written as $a+\floor{b}+(b-\floor{b})$. Since we know that $b-\floor{b}$ is greater than zero and less than one and $a-\floor{a}$ is zero, $c-\floor{c}$ must equal $b-\floor{b}$. Because $c-\floor{c}$ is not zero, c is not an integer, and therefore if $a\in \mathbb{Z}$ and $b \notin \mathbb{Z}$ then $c=a+b\notin \mathbb{Z}$
+\end{document}
