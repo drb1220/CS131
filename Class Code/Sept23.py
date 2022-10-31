@@ -11,7 +11,7 @@ def req5(a, b, c, d, e):
 def req6(a, b, c, d, e):
 	return b or d or e
 
-def satisfyReqs(a, b, c, d, e):
+def satisfyCourseReqs(a, b, c, d, e):
 	return req1(a, b, c, d, e) and \
 		req2(a, b, c, d, e) and \
 		req3(a, b, c, d, e) and \
@@ -19,11 +19,18 @@ def satisfyReqs(a, b, c, d, e):
 		req5(a, b, c, d, e) and \
 		req6(a, b, c, d, e)
 
-def buildModel(l):
-    if len(l) < 5:
-        buildModel(l+[False])
-        buildModel(l+[True])
+def satisfyScheduleReqs(a, b, c, d, e):
+    return not(c and e)
+
+def satisfyReqs(a, b, c, d, e):
+    return satisfyCourseReqs(a, b, c, d, e) and satisfyScheduleReqs(a, b, c, d, e)
+
+def buildModel(model):
+    if len(model) < 5:
+        buildModel(model+[False])
+        buildModel(model+[True])
     else:
-        print(l)
+        if(satisfyReqs(*model)):
+            print(model)
 
 buildModel([])

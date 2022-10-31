@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 6}
+\author{David Bunger}
+\date{October 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+Suppose that there exists an element x where $x\in (D\cap E)$. This implies $x\in D$ and $x\in E$ by the definition if intersection. Because $D=C\cap A$ and $E=C\cap B$, this also implies that $x\in A$, $x\in B$, and $x\in C$. Because $x\in A$ and $x\in B$, then $x\in A\cap B$. However, $A\cap B$ is assumed to be empty, so this is a contradiction. Therefore, x cannot exist, meaning $D\cap E=\emptyset$ by the definition of $\emptyset$.
+\section*{Problem 2}
+\subsection*{a)}
+It is unnecessary to declare another variable $y$. We can achieve the same result by showing $xRx \land xRx \rightarrow xRx$. This proof also assumes that every element in the domain has is defined in the relation, which may not be true.
+\subsection*{b)}
+Suppose R is a relation on the set $\{x,y,z\}$, and R is defined as $\{(x,x),(x,y),(y,x),(y,y)\}$. This relation is Lottian, but it is not reflexive because z is not defined in the relation.
+\subsection*{c)}
+Theorem: If a relation is reflexive and Lottian, then it is an equivalence relation.\\
+\newline
+Lemma 1: If a relation is reflexive and Lottian, then it is also symmetric.\\
+\newline
+Suppose that the relation R is Lottian and reflexive. Let x and y be elements in the set that R is a relation on. Because R is Lottian, we can use the definition of Lottian to show $xRx \land yRx \rightarrow xRy$. Because R is reflexive, we know $xRx$ is always true. This makes the previous statement equivalent to $yRx \rightarrow xRy$, which is the definition of symmetry.\\
+\clearpage
+Lemma 2: If a relation is reflexive and Lottian, then it is also transitive.\\
+\newline
+Suppose that the relation R is Lottian and reflexive. Let x, y, and z be elements in the set that R is a relation on. Because R is Lottian, we can use the definition of Lottian to show $xRy \land zRy \rightarrow xRz$. Since we know R is symmetric by Lemma 1, we can rewrite this statement as $xRy \land yRz \rightarrow xRz$, which is the definition of transitivity.\\
+\newline
+Proof:\\
+Suppose that the relation R is Lottian and reflexive. We know that R is symmetric and transitive by Lemmas 1 and 2. Because R is reflexive, transitive, and symmetric, it is an equivalence relation by the definition of equivalence.
+\section*{Problem 3}
+Case 1: $r_1 = 0$\\
+Since $r_1$ is 0, $n=q_1d$, meaning n is a multiple of d, and that $q_1 = n/d$. If we substitute $q_1d$ for $n$ in $n=q_2d+r_2$, we get $q_1d=q_2d+r_2$. If $q_2 \neq q_1$, then $q_2$ must be less than $q_1$, and $r_2$ would be equal to $(q_1-q_2)d$. However, because $0 \leq r_2 < d$, $r_2$ must be zero, and therefore $r_1 = r_2$. This leaves $q_1d=q_2d$, meaning that $q_1=q_2$.\\
+Case 2: $r_1 \neq 0$\\
+$q_1d+r_1$ can be substituted for $n$ in $n=q_2d+r_2$, giving $q_1d+r_1=q_2d+r_2$. This can be rewritten as $q_1d=q_2d+r_2-r_1$. Similar to the first case, if $q_2 \neq q_1$, then $q_2$ must be less than $q_1$, and $r_2-r_1$ would be equal to $(q_1-q_2)d$. However, because $0 \leq r_1 < d$ and $0 \leq r_2 < d$, $r_2-r_1$ must be zero. This can only be accomplished if $r_1=r_2$. Again, this leaves $q_1d=q_2d$, meaning that $q_1=q_2$.
+\section*{Problem 4}
+Theorem: $t=r_3$\\
+Proof:\\
+We want to show that $t=r_3$. We can expand this into $s\%a=b_3\%a$, which can be further expanded to $(r_1\cdot r_2)\%a=(b_1\cdot b_2)\% a$, which can again be expanded to get $((b_1\% a)\cdot (b_2 \% a))\%a=(b_1\cdot b_2)\% a$. Because of the distributive property of the modulo operator, the left side can be turned from $((b_1\% a)\cdot (b_2 \% a))\%a$ to $((b_1\cdot b_2)\% a)\%a$. The second modulo operation is redundant because  $(b_1\cdot b_2)\% a$ is already less than $a$. This leaves us with $(b_1\cdot b_2)\% a=(b_1\cdot b_2)\% a$. Since the left side was originally equivalent to $t$, and the right side was originally equivalent to $r_3$, this shows that $t=r_3$.
+\end{document}
