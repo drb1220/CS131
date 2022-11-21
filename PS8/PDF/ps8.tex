@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 8}
+\author{David Bunger}
+\date{November 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+Theorem:\\
+For all integers $a$ and $b$ and for all natural numbers $n$, $a-b$ divides $a^n-b^n$.\\
+Proof:\\
+Base Case: $n=0$\\
+$(a-b)|(a^0-b^0)$\\
+$(a-b)|0$\\
+Inductive Step:\\
+Assume that $(a-b)|(a^k-b^k)$ for all natural numbers k, meaning there exists some integer $c_k$ such that $(a-b)c_k=(a^k-b^k)$. We must show that $(a-b)|(a^{k+1}-b^{k+1})$.
+$a^{k+1}-b^{k+1}$\\
+$a^{k+1}-b^{k+1}+ab^k-ab^k$\\
+$a^{k}a-ab^k-b^{k}b+ab^k$\\
+$a(a^k-b^k)-b^k(-a+b)$\\
+$a(a^k-b^k)+b^k(a-b)$\\
+$a(a-b)(c_k)+b^k(a-b)$ by Inductive Hypothesis\\
+$(a-b)(a(c_k)+b^k)$\\
+Since $(a-b)$ is a factor of $(a-b)(a(c_k)+b^k)$, $(a-b)|(a-b)(a(c_k)+b^k)$, and therefore, $(a-b)|(a^{k+1}-b^{k+1})$.
+\clearpage
+\section*{Problem 2}
+\subsection*{a)}
+$f(x)=\overline{x}+x$\\
+$h(x)=x$\\
+$g(x)=\overline{x}$\\
+$r(x)=\overline{x}x$
+\subsection*{b)}
+Let $s(k)$ be the size of a function $f$ on $k$ variables, where k is a natural number. Assume that a function $f$ on $k$ variables, where k is a natural number, can be represented by a formula of size less than or equal to $3(2^k)-4$, or $s(k)\leq 3(2^k)-4$.  We are trying to prove that $s(k+1) \leq 3(2^{k+1})-4$. When a variable is added to a function, the number of rows in the truth table doubles. Each of these two halves can be looked at as their own truth table with one fewer variable, meaning $s(k)\leq 3(2^k)-4$ by the inductive hypothesis. When combining these two formulas, they can simply be connected with either a conjunction or a disjunction(depending on how the original formula was constructed), making the total size, or $s(k+1)$, equal to $2s(k)+1$. Now we have simply have to prove that $2s(k)+1\leq 3(2^{k+1})-4$.\\
+$2s(k)+1\leq2(3(2^k)-4)+1$\\
+$=6(2^k)-7$\\
+$=3(2^{k+1})-7$\\
+$<3(2^{k+1})-4$
+\clearpage
+\section*{Problem 3}
+Theorem:\\
+For every $n\geq 2$, $f_n\geq (1.5)^{n-2}$\\
+Proof:\\
+Base Cases:\\
+$n=2$: We have $f_2=1$, and $(1.5)^0=1$. Since $1\geq 1$, the first base case holds.\\
+$n=3$: We have $f_3=2$, and $(1.5)^1=1.5$. Since $2\geq 1.5$, the second base case also holds.\\
+Inductive Step:\\
+Assume that $f_j \geq (1.5)^{j-2}$ holds for all $j$ from 2 to $k$, where $k\geq 3$. We must show this holds for $k+1$, or that 
+$f_{k+1}\geq (1.5)^{k-1}$\\
+Based on our Inductive Hypothesis, we know that\\
+$f_k\geq(1.5)^{k-2}$\\
+$f_{k-1}\geq(1.5)^{k-3}$\\
+This gives us\\
+$f_{k+1}=f_k+f_{k-1}$\\
+$\geq (1.5)^{k-2}+(1.5)^{k-3}$\\
+The statement $x^a < x^{a-1}+x^{a-2}$ is true so long as $x$ is less than a specific number, being the golden ratio, or $\frac{1+\sqrt{5}}{2}$. When x is equivalent to the golden ratio, $x^a = x^{a-1}+x^{a-2}$. Since $1.5$ is less than the golden ratio, we can conclude that\\
+$\geq(1.5)^{k-1}$\\
+Since we have shown that the equation holds for both the base case and the inductive step, we have successfully proven that $f_n\geq (1.5)^{n-2}$.
+\clearpage
+\section*{Problem 4}
+Theorem:\\
+For all positive integers $n$, $a_n=3\cdot 2^{n-1}+2(-1)^n$\\
+Proof:\\
+Base Cases:\\
+$n=1$: We have $a_1=1$, and $3\cdot 2^0+2(-1)^1=3-2=1$, so the first base case holds.\\
+$n=2$: We have $a_2=8$, and $3\cdot 2^1+2(-1)^2=6+2=8$, so the second base case also holds.\\
+Inductive Step:\\
+Assume that $a_j=3\cdot 2^{j-1}+2(-1)^j$ holds for all $j$ from 1 to $k$, where $k\geq 2$. We must show that this holds for $k+1$, or that $a_{k+1}=3\cdot 2^k+2(-1)^{k+1}$\\
+Based on our Inductive Hypothesis, we know that\\
+$a_k=3\cdot 2^{k-1}+2(-1)^k$\\
+$a_{k-1}=3\cdot 2^{k-2}+2(-1)^{k-1}$\\
+This gives us\\
+$a_{k+1}=a_k+2a_{k-1}$\\
+$=(3\cdot 2^{k-1}+2(-1)^k)+2(3\cdot 2^{k-2}+2(-1)^{k-1})$\\
+$=3\cdot 2^{k-1}+2(-1)^k+3\cdot 2^{k-1}+4(-1)^{k-1}$\\
+$=6\cdot 2^{k-1}+2(-1)^k+4(-1)^{k-1}$\\
+$=3\cdot 2^{k}+2(-1)^k+4(-1)^{k-1}$\\
+Because $(-1)^k=-(-1)^{k-1}$,\\
+$=3\cdot 2^{k}+-2(-1)^{k-1}+4(-1)^{k-1}$\\
+$=3\cdot 2^{k}+2(-1)^{k-1}$\\
+Since $(-1)^{k-1}=(-1)^{k+1},$\\
+$=3\cdot 2^{k}+2(-1)^{k+1}$\\
+Since we've shown the theorem holds for both base cases and the inductive step, we have successfully proven the theorem.\\
+We needed to use strong induction in this case because the equation contains $a_{k-1}$. With weak induction, we can only assume that $a_k$ is true, so this wouldn't work. However, with strong induction, we can assume every integer $j$ from 0 to $k$, which includes $k-1$, so we can assume the theorem holds for $a_{k-1}$.
+\end{document}
