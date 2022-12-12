@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Problem Set 10}
+\author{David Bunger}
+\date{December 2022}
+
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{parskip}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1.}
+\subsection*{10.3.4(a)}
+The project that requires a senior has 3 options for coders. For each of those options, there are 7 options for the project that requires a junior. For each of those options, there are 8 remaining options, since no coder can be assigned to more than one project.
+By the generalized product rule, these can all be multiplied to get the final result: $3\cdot 7\cdot 8=168$
+\subsection*{10.5.6(b)}
+Since 3 computers have to be chosen, the only remaining combinations are choosing 2 out of the remaining 37, or $C(37,2)$.
+\subsection*{10.6.4(b)}
+Since 4 books need to be given to each child, the first child can be represented with $C(20,4)$. The second child can be represented with $C(16,4)$ since 4 have been chosen already. The third can be represented as $C(12,4)$, the fourth with $C(8,4)$, and remaining 4 comic books are given to the fifth child. By the generalized product rule, we get $C(20,4)\cdot C(16,4)\cdot C(12,4)\cdot C(8,4)$. This can then be simplified to $\frac{20!}{4!4!4!4!4!}$
+\subsection*{10.7.3(c)}
+The center player must be chosen from 3 players, giving 3 choices. The remaining 4 positions must be chosen from the remaining 11 players, but because the order matters, we use $P(11,4)$. With the generalized product rule, we get $3\cdot P(11,4)$.
+\clearpage
+\subsection*{10.8.2(b)}
+There are $C(52,5)$ possible hands, since the order of the hand doesn't matter. The number of hands that contain no matching ranks is $52\cdot48\cdot44\cdot40\cdot36$. Therefore, the number of hands that have at least one matching rank is $C(52,5)- 52\cdot48\cdot44\cdot40\cdot36$.
+\subsection*{10.9.2(a)}
+Since there are 121.4 million people making at least \$10,000 and less than \$120,000, that means we are mapping 121,400,000 to 110,000 possible salaries. In the worst case scenario (to get the lowest possible number of people in each salary), we divide the people evenly to each salary. Rounding down, this gives 1103 people in each salary, meaning there are always at least 123 people who make the same annual income.
+\subsection*{10.9.4(a)}
+There are 7 combinations of numbers 1-14 that add up to 15: $\{(1,14),(2,13),$ $(3,12),(4,11),(5,10),(6,9),(7,11)\}$. We are mapping 8 numbers to 7 combinations, so therefore, at least one must overlap. If we look at the worst case scenario, the first 7 numbers chosen do not add up to 15 with each other, eg. 1-7. However, since there are no more free pairings, the final number must be one that adds up to 15 with one of the existing numbers.
+\subsection*{13.1.4(a)}
+Since team A is created by choosing 5 kids out of 10, there are C(10,5) possible combinations for team A. Since, in each of these groupings, the remaining 5 kids are always on team B, so, for each combination for team A, there is only one possible team B. Therefore, the number of combinations for the teams, or the sample size, is C(10,5), or 252.
+\subsection*{13.1.4(b)}
+If Alex is on a any team, are 4 remaining positions that Jose could be on, and 5 positions on the other team, that means Jose wants one of the 4 out of the total of 9 options, meaning the probability is $\frac{4}{9}$.
+\clearpage
+\section*{Problem 2.}
+With the original example, we always had to place $y-1$ white pebbles into $x-1$ positions. However, since 0 is a valid summand, we can have fewer than $y-1$. Not including the last white pebble, we could have as few as 0 white pebbles. In the case of $x=6$ and $y=3$, $111110$ could represent $6+0+0$. However, this could also represent $0+6+0$ or $0+0+6$. In a case such as $011110$, or 1 and 5, this could represent $1+5+0$, $1+0+5$, or $0+1+5$. This could not represent $5+1+0$ however, as that is represented with $111100$. Because the order of the non-zero summands can't change, this sum can be looked at as a permutation with repetitions, where the zeroes are repeated, and the rest of the summands are considered repeats. In the case of 1 and 5, using the formula for counting permutations with repetitions, we get $\frac{3!}{2!1!}$, where the 3 is x, 1 is the number of zeroes, and 2 is the number of  non-zeroes. This has to be multiplied by the number of combinations with 1 zero, which can be found in a similar way as the original question. Since one fewer white pebble needs to be chosen, it can be written as $C(x-1,y-2)$. This has to be added to all of the possible combinations with increasing numbers of zeroes until there is only one non-zero left. The final formula can be represented by the sum:\\
+\[ \scalebox{2}{$\displaystyle \sum_{n=0}^{x-1} (C(x-1,y-n)\cdot \frac{x!}{n!(x-n)!}) $} \]\\
+You'll notice that the right half of the sum is actually the formula for the choose function, so this can be rewritten as:\\
+\[ \scalebox{2}{$\displaystyle \sum_{n=0}^{x-1} (C(x-1,y-n)\cdot C(x,n)) $} \]\\
+\end{document}
